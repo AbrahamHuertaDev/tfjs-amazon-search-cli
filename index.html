@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Amazon 探検隊！</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="keywords" content="tensorflow.js, AI, Amazon, 商品検索" />
+  <meta name="description" content="AI Amazon 探検隊！はカメラで撮影した物体を AI で予測し、その予測結果に基づいて Amazon 商品検索を行います。" />
+
+  <!-- AI Amazon 探検用 -->
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="libs/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="libs/slick/slick-theme.css" />
+  <script type="text/javascript" src="libs/jquery/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="libs/slick/slick.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1"></script>
+  <script type="text/javascript" src="js/imagenet_classes_jp.js"></script>
+  <script type="module" src="js/index.js"></script>
+
+</head>
+<body>
+
+  <h1>AI Amazon 探検隊！</h1>
+
+  <div id="description">
+  <p>「探検する」ボタンを押すと、カメラに映っているものを AI で予測し、その予測結果に基づき Amazon 商品検索を行います。</p>
+  <p>「探検する」にはカメラと下記の環境の何れかが必要です。スマートフォン・タブレット環境においては機種の性能により、予測結果表示まで数分かかる場合があります。<p>
+  <ul>
+    <li>IE ver.11 以上 / Edge ver.17 以上</li>
+    <li>Firefox ver.60 以上</li>
+    <li>Chrome ver.66 以上</li>
+    <li>Safari ver.11.1 以上</li>
+    <li>iOS Safari ver.11.3 以上</li>
+    <li>Chrome for Android ver.66 以上</li>
+  </ul>
+  </div>
+
+  <!-- カメラ・探検ボタン -->
+  <div id="camera-wrapper">
+    <video id="camera" autoplay playsinline></video>
+    <div id="sbutton">
+      <div id="search">探検する</div>
+      <div id="searching">
+        <div class="searching-bar"></div>
+        <div class="searching-bar"></div>
+        <div class="searching-bar"></div>
+        <div class="searching-bar"></div>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="focus"><div id="focus-center">+</div></div>
+  </div>
+
+  <!-- エラー出力 -->
+  <div id="error"></div>
+
+  <!-- 予測出力 -->
+  <div id="output"></div>
+
+</body>
+</html>
